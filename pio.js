@@ -1,12 +1,6 @@
 /* ----
 
-# Pio Plugin
-# By: Dreamer-Paul
-# Last Update: 2021.3.3
-
-一个支持更换 Live2D 模型的 Typecho 插件。
-
-本代码为奇趣保罗原创，并遵守 GPL 2.0 开源协议。欢迎访问我的博客：https://paugram.com
+https://www.wikianow.com/
 
 ---- */
 
@@ -47,7 +41,7 @@ var Paul_Pio = function (prop) {
                 dialog.innerText = text;
             }
             else{
-                dialog.innerText = "输入内容出现问题了 X_X";
+                dialog.innerText = "Đã xảy ra sự cố với đầu vào!!!";
             }
 
             dialog.classList.add("active");
@@ -99,43 +93,43 @@ var Paul_Pio = function (prop) {
                 var text, hour = new Date().getHours();
 
                 if (hour > 22 || hour <= 5) {
-                    text = '你是夜猫子呀？这么晚还不睡觉，明天起的来嘛';
+                    text = 'Bạn có phải là một con cú đêm? Tôi sẽ không đi ngủ muộn như vậy, vì vậy tôi sẽ dậy sớm vào ngày mai.';
                 }
                 else if (hour > 5 && hour <= 8) {
-                    text = '早上好！';
+                    text = 'Buổi sáng tốt lành!';
                 }
                 else if (hour > 8 && hour <= 11) {
-                    text = '上午好！工作顺利嘛，不要久坐，多起来走动走动哦！';
+                    text = 'Buổi sáng tốt lành! Làm việc tốt, đừng ngồi lâu, hãy đứng dậy đi lại!';
                 }
                 else if (hour > 11 && hour <= 14) {
-                    text = '中午了，工作了一个上午，现在是午餐时间！';
+                    text = 'Bây giờ là buổi trưa, bạn đã làm việc cả buổi sáng, và đã đến giờ ăn trưa!';
                 }
                 else if (hour > 14 && hour <= 17) {
-                    text = '午后很容易犯困呢，今天的运动目标完成了吗？';
+                    text = 'Bạn rất dễ buồn ngủ vào buổi chiều. Bạn đã hoàn thành mục tiêu hôm nay chưa?';
                 }
                 else if (hour > 17 && hour <= 19) {
-                    text = '傍晚了！窗外夕阳的景色很美丽呢，最美不过夕阳红~';
+                    text = 'Buổi tối rồi! Hoàng hôn ngoài cửa sổ rất đẹp, đẹp nhất khi hoàng hôn có màu đỏ!!!';
                 }
                 else if (hour > 19 && hour <= 21) {
-                    text = '晚上好，今天过得怎么样？';
+                    text = 'Chào buổi tối! Hôm nay bạn thế nào?';
                 }
                 else if (hour > 21 && hour <= 23) {
-                    text = '已经这么晚了呀，早点休息吧，晚安~';
+                    text = 'Đã khuya rồi, nghỉ ngơi sớm đi, chúc ngủ ngon!';
                 }
                 else{
-                    text = "奇趣保罗说：这个是无法被触发的吧，哈哈";
+                    text = "Bạn đang nhìn gì đấy? Tôi à >.<";
                 }
 
                 modules.render(text);
             }
             else{
-                modules.render(prop.content.welcome || "欢迎来到本站！");
+                modules.render(prop.content.welcome || "Chào mừng đến với Wiki!");
             }
         },
         // 触摸
         touch: function () {
             current.canvas.onclick = function () {
-                modules.render(prop.content.touch || ["你在干什么？", "再摸我就报警了！", "HENTAI!", "不可以这样欺负我啦！"]);
+                modules.render(prop.content.touch || ["Bạn đang làm gì đấy?", "Chạm vào tôi lần nữa là bắn bỏ!", "Đừng bắt nạt tôi thế chứ @@!"]);
             };
         },
         // 右侧按钮
@@ -145,26 +139,26 @@ var Paul_Pio = function (prop) {
                 location.href = current.root;
             };
             elements.home.onmouseover = function () {
-                modules.render(prop.content.home || "点击这里回到首页！");
+                modules.render(prop.content.home || "Nhấn vào đây để trở về trang chủ!");
             };
             current.menu.appendChild(elements.home);
 
             // 更换模型
             elements.skin.onclick = function () {
                 loadlive2d("pio", prop.model[modules.idol()]);
-                prop.content.skin && prop.content.skin[1] ? modules.render(prop.content.skin[1]) : modules.render("新衣服真漂亮~");
+                prop.content.skin && prop.content.skin[1] ? modules.render(prop.content.skin[1]) : modules.render("Quần áo mới đẹp quá!");
             };
             elements.skin.onmouseover = function () {
-                prop.content.skin && prop.content.skin[0] ? modules.render(prop.content.skin[0]) : modules.render("想看看我的新衣服吗？");
+                prop.content.skin && prop.content.skin[0] ? modules.render(prop.content.skin[0]) : modules.render("Bạn muốn xem quần áo mới của tôi?");
             };
             if(prop.model.length > 1) current.menu.appendChild(elements.skin);
 
             // 关于我
             elements.info.onclick = function () {
-                window.open(prop.content.link || "https://paugram.com/coding/add-poster-girl-with-plugin.html");
+                window.open(prop.content.link || "/");
             };
             elements.info.onmouseover = function () {
-                modules.render("想了解更多关于我的信息吗？");
+                modules.render("Muốn biết thêm về tôi?");
             };
             current.menu.appendChild(elements.info);
 
@@ -174,7 +168,7 @@ var Paul_Pio = function (prop) {
                     eval(prop.night);
                 };
                 elements.night.onmouseover = function () {
-                    modules.render("夜间点击这里可以保护眼睛呢");
+                    modules.render("Chạm để bảo vệ mắt nè!");
                 };
                 current.menu.appendChild(elements.night);
             }
@@ -184,7 +178,7 @@ var Paul_Pio = function (prop) {
                 modules.destroy();
             };
             elements.close.onmouseover = function () {
-                modules.render(prop.content.close || "QWQ 下次再见吧~");
+                modules.render(prop.content.close || "Hẹn gặp lại các bạn lần sau!");
             };
             current.menu.appendChild(elements.close);
         },
@@ -286,5 +280,5 @@ var Paul_Pio = function (prop) {
 
 // 请保留版权说明
 if (window.console && window.console.log) {
-    console.log("%c Pio %c https://paugram.com ","color: #fff; margin: 1em 0; padding: 5px 0; background: #673ab7;","margin: 1em 0; padding: 5px 0; background: #efefef;");
+    console.log("%c Pio %c https://www.wikianow.com ","color: #fff; margin: 1em 0; padding: 5px 0; background: #673ab7;","margin: 1em 0; padding: 5px 0; background: #efefef;");
 }
