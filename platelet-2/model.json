@@ -1,34 +1,36 @@
 {
-	"posted": "Dreamer-Paul",
+	"version":"1.0.0",
 	"type": "Live2D Model Setting",
 	"name": "model",
 	"model": "model.moc",
 	"textures": [
-		"textures/texture_00.png"
+		"model.2048/texture_00.png"
 	],
-	"layout": {
-		"center_x": -0.3,
-		"center_y": -0.08,
-		"width": 1.9
-	},
-	"hit_areas_custom": {
-		"head_x": [-0.8, 0.85],
-		"head_y": [-0.45, 0.45],
-		"body_x": [-0.75, 0.45],
-		"body_y": [-0.5, 0]
+    "layout":{
+        "center_x":0,
+        "center_y":0.01,
+        "width":1.9
+    },
+	"hit_areas_custom":{
+		"head_x":[-0.30, 0.80],
+		"head_y":[0.32, 0.15],
+		"body_x":[-0.25, 0.15],
+		"body_y":[0.25, -0.45]
 	},
 	"motions":{
 		"idle":[
-			{"file":"motions/Idle.mtn"}
+			{"file":"motions/Idle.mtn"}			
 		],
         "sleepy":[
             {"file":"motions/Nemui.mtn"}
         ],
 		"flick_head":[
-			{"file":"motions/Anone Synced.mtn"}
+			{"file":"motions/Anone_Synced.mtn", "sound": "voice/01.wav"},
+			{"file":"motions/Anone_Synced.mtn", "sound": "voice/02.wav"}			
 		],
 		"tap_body":[
-			{"file":"motions/Dance.mtn"}
+			{"file":"motions/Dance.mtn", "sound": "voice/03.wav"},
+			{"file":"motions/Dance.mtn", "sound": "voice/04.wav"}			
 		]
 	}
 }
