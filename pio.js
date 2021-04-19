@@ -41,7 +41,7 @@ var Paul_Pio = function (prop) {
                 dialog.innerText = text;
             }
             else{
-                dialog.innerText = "Đã xảy ra sự cố với đầu vào!!!";
+                dialog.innerText = "Something went wrong with the input !!!";
             }
 
             dialog.classList.add("active");
@@ -87,49 +87,49 @@ var Paul_Pio = function (prop) {
             if(document.referrer !== "" && document.referrer.indexOf(current.root) === -1){
                 var referrer = document.createElement('a');
                 referrer.href = document.referrer;
-                prop.content.referer ? modules.render(prop.content.referer.replace(/%t/, "“" + referrer.hostname + "”")) : modules.render("欢迎来自 “" + referrer.hostname + "” 的朋友！");
+                prop.content.referer ? modules.render(prop.content.referer.replace(/%t/, "“" + referrer.hostname + "”")) : modules.render("Welcome friends to Website！");
             }
             else if(prop.tips){
                 var text, hour = new Date().getHours();
 
                 if (hour > 22 || hour <= 5) {
-                    text = 'Bạn có phải là một con cú đêm? Tôi sẽ không đi ngủ muộn như vậy, vì vậy tôi sẽ dậy sớm vào ngày mai.';
+                    text = "Are you a night owl? I wouldn't go to bed that late, so I'll get up early tomorrow.";
                 }
                 else if (hour > 5 && hour <= 8) {
-                    text = 'Buổi sáng tốt lành!';
+                    text = "Good morning!";
                 }
                 else if (hour > 8 && hour <= 11) {
-                    text = 'Buổi sáng tốt lành! Làm việc tốt, đừng ngồi lâu, hãy đứng dậy đi lại!';
+                    text = "Good morning! Good work, don't sit for long, get up and walk!";
                 }
                 else if (hour > 11 && hour <= 14) {
-                    text = 'Bây giờ là buổi trưa, bạn đã làm việc cả buổi sáng, và đã đến giờ ăn trưa!';
+                    text = "It's noon now, you've been working all morning, and it's time for lunch!";
                 }
                 else if (hour > 14 && hour <= 17) {
-                    text = 'Bạn rất dễ buồn ngủ vào buổi chiều. Bạn đã hoàn thành mục tiêu hôm nay chưa?';
+                    text = "You get sleepy in the afternoon very easily. Have you accomplished your goal today?";
                 }
                 else if (hour > 17 && hour <= 19) {
-                    text = 'Buổi tối rồi! Hoàng hôn ngoài cửa sổ rất đẹp, đẹp nhất khi hoàng hôn có màu đỏ!!!';
+                    text = "It's evening! The sunset out the window is so beautiful, it's best when it's red !!!";
                 }
                 else if (hour > 19 && hour <= 21) {
-                    text = 'Chào buổi tối! Hôm nay bạn thế nào?';
+                    text = "Good evening! How are you today?";
                 }
                 else if (hour > 21 && hour <= 23) {
-                    text = 'Đã khuya rồi, nghỉ ngơi sớm đi, chúc ngủ ngon!';
+                    text = "It's late, rest early, good night!";
                 }
                 else{
-                    text = "Bạn đang nhìn gì đấy? Tôi à >.<";
+                    text = "What are you looking at? >.<";
                 }
 
                 modules.render(text);
             }
             else{
-                modules.render(prop.content.welcome || "Chào mừng đến với Wiki!");
+                modules.render(prop.content.welcome || "Welcome to Wiki!");
             }
         },
         // 触摸
         touch: function () {
             current.canvas.onclick = function () {
-                modules.render(prop.content.touch || ["Bạn đang làm gì đấy?", "Chạm vào tôi lần nữa là bắn bỏ!", "Đừng bắt nạt tôi thế chứ @@!"]);
+                modules.render(prop.content.touch || ["What are you doing?", "Touch me again and shoot!", "Don't bully me like that @@!"]);
             };
         },
         // 右侧按钮
@@ -139,17 +139,17 @@ var Paul_Pio = function (prop) {
                 location.href = current.root;
             };
             elements.home.onmouseover = function () {
-                modules.render(prop.content.home || "Nhấn vào đây để trở về trang chủ!");
+                modules.render(prop.content.home || "Click here to return to the homepage!");
             };
             current.menu.appendChild(elements.home);
 
             // 更换模型
             elements.skin.onclick = function () {
                 loadlive2d("pio", prop.model[modules.idol()]);
-                prop.content.skin && prop.content.skin[1] ? modules.render(prop.content.skin[1]) : modules.render("Quần áo mới đẹp quá!");
+                prop.content.skin && prop.content.skin[1] ? modules.render(prop.content.skin[1]) : modules.render("The new clothes are so beautiful!");
             };
             elements.skin.onmouseover = function () {
-                prop.content.skin && prop.content.skin[0] ? modules.render(prop.content.skin[0]) : modules.render("Bạn muốn xem quần áo mới của tôi?");
+                prop.content.skin && prop.content.skin[0] ? modules.render(prop.content.skin[0]) : modules.render("Want to see my new clothes?");
             };
             if(prop.model.length > 1) current.menu.appendChild(elements.skin);
 
@@ -158,7 +158,7 @@ var Paul_Pio = function (prop) {
                 window.open(prop.content.link || "/");
             };
             elements.info.onmouseover = function () {
-                modules.render("Muốn biết thêm về tôi?");
+                modules.render("Want to know more about me?");
             };
             current.menu.appendChild(elements.info);
 
@@ -168,7 +168,7 @@ var Paul_Pio = function (prop) {
                     eval(prop.night);
                 };
                 elements.night.onmouseover = function () {
-                    modules.render("Chạm để bảo vệ mắt nè!");
+                    modules.render("Touch to protect your eyes!");
                 };
                 current.menu.appendChild(elements.night);
             }
@@ -178,7 +178,7 @@ var Paul_Pio = function (prop) {
                 modules.destroy();
             };
             elements.close.onmouseover = function () {
-                modules.render(prop.content.close || "Hẹn gặp lại các bạn lần sau!");
+                modules.render(prop.content.close || "See you next time!");
             };
             current.menu.appendChild(elements.close);
         },
@@ -191,12 +191,12 @@ var Paul_Pio = function (prop) {
                     for(var j = 0; j < e.length; j++){
                         if(t.type === "read"){
                             e[j].onmouseover = function () {
-                                modules.render("想阅读 %t 吗？".replace(/%t/, "“" + this.innerText + "”"));
+                                modules.render("Want to read %t？".replace(/%t/, "“" + this.innerText + "”"));
                             }
                         }
                         else if(t.type === "link"){
                             e[j].onmouseover = function () {
-                                modules.render("想了解一下 %t 吗？".replace(/%t/, "“" + this.innerText + "”"));
+                                modules.render("Want to learn about %t？".replace(/%t/, "“" + this.innerText + "”"));
                             }
                         }
                         else if(t.text){
